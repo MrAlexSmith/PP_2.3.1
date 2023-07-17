@@ -1,18 +1,28 @@
 package app.models;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "surname")
     private String surname;
+
     @Column(name = "age")
     private byte age;
 
@@ -20,9 +30,9 @@ public class User {
     }
 
     public User(String name, String surname, byte age) {
-        this.name = name;
+        this.name    = name;
         this.surname = surname;
-        this.age = age;
+        this.age     = age;
     }
 
     public long getId() {
@@ -60,10 +70,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                '}';
+               "id=" + id +
+               ", name='" + name + '\'' +
+               ", surname='" + surname + '\'' +
+               ", age=" + age +
+               '}';
     }
 }
